@@ -1,0 +1,40 @@
+.posts {
+  margin: 1rem;
+  padding: 1rem;
+}
+.post {
+  background-color: white;
+  margin: 1rem;
+  width: 20%;
+  box-sizing: border-box;
+  display: inline-block;
+  padding: 1rem;
+  border-radius: 3px;
+  border: 1px solid #ccc;
+  box-shadow: 5px 5px 5px rgba(black, .4);
+  span {
+    text-transform: capitalize;
+    font-weight: bold;
+  }
+}
+.error {
+  background: salmon;
+  color: red;
+  display: inline-block;
+  border: 2px solid red;
+  width: 80%;
+  box-sizing: border-box;
+  text-align: center;
+  font-size: 4rem;
+  margin: 10%;
+  animation: alert .2s linear both infinite;
+}
+
+@keyframes alert {
+  0% {
+    color: white;
+  }
+  100% {
+    color: red;
+  }
+}
