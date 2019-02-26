@@ -1,4 +1,4 @@
-import { GET_POSTS_SUCCESS, GET_POSTS_FAIL } from '../actionTypes/postsActionTypes';
+import { GET_POSTS_SUCCESS, GET_POSTS_FAIL, CREATE_USER_POST_SUCCESS } from '../actionTypes/postsActionTypes';
 
 const defaultState = {
   posts: [],
@@ -18,6 +18,12 @@ export default (state = defaultState, action) => {
         ...state,
         errors: action.payload,
       };
+    case CREATE_USER_POST_SUCCESS:
+      return {
+        ...state,
+        error: null,
+        posts: action.payload,
+      }
     default:
       return { ...state };
   }

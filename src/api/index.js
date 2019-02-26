@@ -9,10 +9,10 @@ class Api {
     const { data: posts } = await apiClient.get('/posts');
     return posts;
   };
-  
+
   publishPost = async postInfo => {
-    const response = await apiClient.post('/posts', postInfo);
-    return response;
+    const { data: post } = await apiClient.post('/posts', postInfo);
+    return post;
   }
 
   deletePost = async postId => {

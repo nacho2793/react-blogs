@@ -13,20 +13,26 @@ class Posts extends React.Component {
     this.props.getPosts();
   }
 
-  onChange = () => {
-    return '';
+  onChangeHandler = inputName => event => {
+    this.setState({ [inputName]: event.target.value });
+  }
+
+  onClickHandler = () => {
+    const { title, body } = this.state;
+    const post = { title, body };
+    this.props.createPost(post);
   }
 
   render() {
     return (
       <div className="posts">
-      <h1>Posts! :D</h1>
+        <h1>Posts! :D</h1>
         <div className="post new">
-        <label htmlFor="">Title</label>
-          <input type="text" value={this.state.title} onChange={this.onChange}/>
-        <label htmlFor="">Body</label>
-          <input type="text" value={this.state.body} onChange={this.onChange}/>
-          <button>Add post</button>
+          <label htmlFor="">Title</label>
+          <input type="text" value={this.state.title} onChange={this.onChangeHandler('title')} />
+          <label htmlFor="">Body</label>
+          <input type="text" value={this.state.body} onChange={this.onChangeHandler('body')} />
+          <button onClick={this.onClickHandler}>Add post</button>
         </div>
         {this.props.posts.map(post => {
           const { title, body } = post;
