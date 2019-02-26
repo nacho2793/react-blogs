@@ -12,12 +12,6 @@ class Posts extends React.Component {
   }
 
   render() {
-    if (this.props.errors) {
-      return (
-        <div className="error">{this.props.errors.message}</div>
-      )
-    }
-    console.log(this.props.posts);
     return (
       <div className="posts">
         {this.props.posts.map(post => {

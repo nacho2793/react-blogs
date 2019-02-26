@@ -1,4 +1,4 @@
-import { getPosts } from '../api';
+import api from '../api';
 import {
   GET_POSTS_SUCCESS,
   GET_POSTS_FAIL
@@ -14,13 +14,11 @@ const getUsersFail = payload => ({
   payload,
 });
 
-export const getUsersPosts = () => dispatch => {
-  getPosts().then(response => {
-    console.log(response)
-    if (response.status === 200) {
-      dispatch(getUsersSuccess(response.data))
-    }
-  }).catch(error => {
-    dispatch(getUsersFail(error))
-  }) 
+export const getUsersPosts = () => async dispatch => {
+  try {
+    const posts = await api.getPosts();
+    dispatch(getUsersSuccess(posts));
+  } catch (error) {
+    dispatch(getUsersFail(error));
+  }
 }
